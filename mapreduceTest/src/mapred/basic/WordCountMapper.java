@@ -13,7 +13,7 @@ import org.apache.hadoop.mapreduce.Mapper;
 //	=> mapper에 전달될 input데이터의 key, value타입과 mapper의 실행결과로 출력되는 output 데이터의 key, value 타입을 정의
 
 //2. map메소드를 오버라이딩해서 map작업을 수행하면서 처리할 내용을 구현
-//	=> 입력도니 값을 분석하기 위한 메소드 : 입력된 데이터에 조건을 적용하여 원하는 데이터를 추출하기 위한 반복작업 수행
+//	=> 입력된 값을 분석하기 위한 메소드 : 입력된 데이터에 조건을 적용하여 원하는 데이터를 추출하기 위한 반복작업 수행
 // map메소드의 매개 변수 - 입력데이터 키, 입력값, Context
 //		- Context : 맵리듀스 작업을 수행하며 맵메소드의 실행결과 - 즉, 출력데이터를 기록, shuffle하고 리듀스로
 //					내보내는 작업을 수행하는 객체
@@ -38,6 +38,5 @@ public class WordCountMapper extends Mapper<LongWritable,Text, Text, IntWritable
 			context.write(outputKey, outputVal);//Context객체의 write메소드를 통해 output으로 내보낼 데이터 정의
 		}
 	}
-
 	
 }
